@@ -23,7 +23,7 @@ def add_info(apps, schema_editor):
                                   bats=row[18], throws=row[19], debut=row[20], finalGame=row[21],
                                   retroID=row[22], bbrefID=row[23])
 
-            raise Exception("BOOMSHAKALAKA!")
+        # raise Exception("BOOMSHAKALAKA!")
 
     with open("core/Batting.csv") as open_file:
         reader = csv.reader(open_file)
@@ -36,7 +36,7 @@ def add_info(apps, schema_editor):
                                    BB=row[15], SO=row[16], IBB=row[17], HBP=row[18],
                                    SH=row[19], SF=row[20], GIDP=row[21])
 
-            raise Exception("BOOMSHAKALAKA!")
+        # raise Exception("BOOMSHAKALAKA!")
 
     with open("core/Pitching.csv") as open_file:
         reader = csv.reader(open_file)
@@ -51,7 +51,7 @@ def add_info(apps, schema_editor):
                                     BK=row[23], BFP=row[24], GF=row[25], R=row[26],
                                     SH=row[27], SF=row[28], GIDP=row[29])
 
-            raise Exception("BOOMSHAKALAKA!")
+        # raise Exception("BOOMSHAKALAKA!")
 
     with open("core/Fielding.csv") as open_file:
         reader = csv.reader(open_file)
@@ -63,14 +63,15 @@ def add_info(apps, schema_editor):
                                     E=row[11], DP=row[12], PB=row[13], WP=row[14],
                                     SB=row[15], CS=row[16], ZR=row[17])
 
-            raise Exception("BOOMSHAKALAKA!")
+        raise Exception("BOOMSHAKALAKA!")
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('app', '0002_auto_20161026_1909'),
+        ('app', '0002_auto_20161026_2145'),
     ]
 
     operations = [
+        migrations.RunPython(add_info)
     ]
