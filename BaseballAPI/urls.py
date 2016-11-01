@@ -15,7 +15,22 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from app.views import (MasterListAPIView, MasterDetailUpdateDestroyAPIView, BattingListAPIView, PitchingListAPIView,
+                       FieldingListAPIView, BattingDetailUpdateDestroyAPIView, PitchingDetailUpdateDestroyAPIView,
+                       FieldingDetailUpdateDestroyAPIView)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^api/master/$', MasterListAPIView.as_view(), name='master_list_api_view'),
+    url(r'^api/master/(?P<pk>\d+)/$', MasterDetailUpdateDestroyAPIView.as_view(),
+        name='master_detail_update_destroy_api_view'),
+    url(r'^api/batting/$', BattingListAPIView.as_view(), name='batting_list_api_view'),
+    url(r'^api/batting/(?P<pk>\d+)/$', BattingDetailUpdateDestroyAPIView.as_view(),
+        name='batting_detail_update_destroy_api_view'),
+    url(r'^api/pitching/$', PitchingListAPIView.as_view(), name='pitching_list_api_view'),
+    url(r'^api/pitching/(?P<pk>\d+)/$', PitchingDetailUpdateDestroyAPIView.as_view(),
+        name='pitching_detail_update_destroy_api_view'),
+    url(r'^api/fielding/$', FieldingListAPIView.as_view(), name='fielding_list_api_view'),
+    url(r'^api/fielding/(?P<pk>\d+)/$', FieldingDetailUpdateDestroyAPIView.as_view(),
+        name='fielding_detail_update_destroy_api_view'),
 ]
